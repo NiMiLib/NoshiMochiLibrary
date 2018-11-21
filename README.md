@@ -1,0 +1,3 @@
+# NoshiMochiLibrary
+
+**NOW IN PROGRESS**
