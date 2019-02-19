@@ -6,8 +6,5 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build source
-          command: g++ -std=c++11 -I ./ test/math/gcd.cpp -o gcd.out
-      - run:
-          name: Run
-          command: ./gcd.out
+          name: run test
+          command: ./tester.sh
