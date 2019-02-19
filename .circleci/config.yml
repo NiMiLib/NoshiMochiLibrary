@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: gcc:latest
+    steps:
+      - checkout
+      - run:
+          name: Build source
+          command: g++ -std=c++11 -I ./ test/math/gcd.cpp -o gcd.out
+      - run:
+          name: Run
+          command: ./gcd.out
