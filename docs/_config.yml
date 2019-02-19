@@ -38,5 +38,3 @@ permalink: /:categories/:title:output_ext
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-theme: jekyll-theme-slate
