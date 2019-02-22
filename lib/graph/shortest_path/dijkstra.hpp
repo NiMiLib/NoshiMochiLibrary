@@ -24,9 +24,9 @@ namespace nimi {
       T d = p.first;
       std::size_t v = p.second;
       que.pop();
-      if(dist[v] < d) continue;
+      if(d > dist[v]) continue;
       for(const auto& e: g[v]) {
-        if(dist[v] + e.val < dist[e.to]) {
+        if(dist[e.to] > dist[v] + e.val) {
           dist[e.to] = dist[v] + e.val;
           que.emplace(dist[e.to], e.to);
         }
