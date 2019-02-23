@@ -24,6 +24,7 @@ namespace nimi {
     while(!que.empty()) {
       int v = que.front();
       que.pop();
+      inc[v] = false;
       for(const auto& e: g[v]) {
         if(dist[v] + e.val < dist[e.to]) {
           dist[e.to] = dist[v] + e.val;
