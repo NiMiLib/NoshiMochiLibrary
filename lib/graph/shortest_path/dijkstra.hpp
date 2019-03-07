@@ -8,7 +8,7 @@
 
 namespace nimi {
   template<class T>
-  std::vector<T> dijkstra(const nimi::graph<T>& g, std::size_t s) {
+  std::vector<T> dijkstra(const nimi::directed_graph<T>& g, std::size_t s) {
     const T INF = std::numeric_limits<T>::max();
     const T ZERO = T();
     const std::size_t n = g.size();

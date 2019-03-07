@@ -22,7 +22,16 @@ namespace nimi {
     };
 
   template<class T>
-    using graph = std::vector<std::vector<edge<T>>>;
+  struct directed_graph : public std::vector<std::vector<edge<T>>> {
+    directed_graph(std::size_t n): std::vector<std::vector<edge<T>>>(n) { }
+    void add_edge(const edge<T>& e) { this->at(e.from).push_back(e); }
+  };
+
+  template<class T>
+  struct undirected_graph : public std::vector<std::vector<edge<T>>> {
+    undirected_graph(std::size_t n): std::vector<std::vector<edge<T>>>(n) { }
+    void add_edge(const edge<T>& e) { this->at(e.from).push_back(e); this->at(e.to).push_back(edge<T>(e.to, e.from, e.val)); }
+  };
 }
 
 #endif
