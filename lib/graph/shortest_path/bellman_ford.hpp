@@ -7,7 +7,7 @@
 
 namespace nimi {
   template<class T>
-  std::vector<std::pair<bool, T>> bellman_ford(const nimi::graph<T>& g, std::size_t s) {
+  std::vector<std::pair<bool, T>> bellman_ford(const nimi::directed_graph<T>& g, std::size_t s) {
     const std::size_t n = g.size();
     const T INF = std::numeric_limits<T>::max();
     std::vector<T> dist(n, INF);

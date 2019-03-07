@@ -7,7 +7,7 @@
 int main() {
   {
     using E = nimi::edge<int>;
-    nimi::graph<int> g(4);
+    nimi::directed_graph<int> g(4);
     std::vector<E> es = {
         E(0,0,1),
         E(0,2,4),
@@ -28,7 +28,7 @@ int main() {
   }
   {
     using E = nimi::edge<int>;
-    nimi::graph<int> g(4);
+    nimi::directed_graph<int> g(4);
     std::vector<E> es = {
         E(0,1,2),
         E(0,2,3),
@@ -48,7 +48,7 @@ int main() {
   }
   {
     using E = nimi::edge<int>;
-    nimi::graph<int> g(4);
+    nimi::directed_graph<int> g(4);
     std::vector<E> es = {
         E(0,1,2),
         E(0,2,3),
