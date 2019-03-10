@@ -37,7 +37,12 @@ namespace nimi {
   template<class T>
   struct undirected_graph : public std::vector<std::vector<edge<T>>> {
     undirected_graph(std::size_t n): std::vector<std::vector<edge<T>>>(n) { }
-    void add_edge(const edge<T>& e) { this->at(e.from).push_back(e); this->at(e.to).push_back(edge<T>(e.to, e.from, e.val)); }
+    void add_edge(const edge<T>& e) { 
+      this->at(e.from).push_back(e);
+      edge<T> re = e;
+      std::swap(re.from, re.to);
+      this->at(e.to).push_back(re); 
+    }
   };
 
   template<class C>
