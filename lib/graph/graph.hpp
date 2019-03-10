@@ -41,11 +41,11 @@ namespace nimi {
   };
 
   template<class C>
-  struct maxflow_graph : public std::vector<std::vector<C>> {
+  struct maxflow_graph : public std::vector<std::vector<maxflow_edge<C>>> {
     maxflow_graph(std::size_t n): std::vector<std::vector<maxflow_edge<C>>>(n) {  }
     void add_edge(int from, int to, C cap, std::size_t rev_cap = 0) {
-      this->at(from).push_back(maxflow_edge(from, to, cap, this->at(to).size()));
-      this->at(to).push_back(maxflow_edge(to, from, rev_cap, this->at(from).size() - 1));
+      this->at(from).push_back(maxflow_edge<C>(from, to, cap, this->at(to).size()));
+      this->at(to).push_back(maxflow_edge<C>(to, from, rev_cap, this->at(from).size() - 1));
     }
   };
 }
