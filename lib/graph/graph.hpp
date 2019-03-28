@@ -28,6 +28,15 @@ namespace nimi {
       : base_edge(from, to), cap(cap), rev(rev) {  }
   };
 
+  template<class C>
+  struct mcf_edge : public base_edge {
+    C cap;
+    C cost;
+    std::size_t rev;
+    mcf_edge(int from, int to, C cap, C cost, std::size_t rev)
+      : base_edge(from, to), cap(cap), cost(cost), rev(rev) {  }
+  };
+
   template<class T>
   struct directed_graph : public std::vector<std::vector<edge<T>>> {
     directed_graph(std::size_t n): std::vector<std::vector<edge<T>>>(n) { }
@@ -51,6 +60,15 @@ namespace nimi {
     void add_edge(int from, int to, C cap, std::size_t rev_cap = 0) {
       this->at(from).push_back(maxflow_edge<C>(from, to, cap, this->at(to).size()));
       this->at(to).push_back(maxflow_edge<C>(to, from, rev_cap, this->at(from).size() - 1));
+    }
+  };
+
+  template<class C>
+  struct mcf_graph : public std::vector<std::vector<mcf_edge<C>>> {
+    mcf_graph(std::size_t n) : std::vector<std::vector<mcf_edge<C>>>(n) {  } 
+    void add_edge(int from, int to, C cap, C cost, std::size_t rev_cap = 0) {
+      this->at(from).push_back(mcf_edge<C>(from, to, cap, cost, this->at(to).size()));
+      this->at(to).push_back(mcf_edge<C>(to, from, rev_cap, -cost, this->at(from).size() - 1));
     }
   };
 }
