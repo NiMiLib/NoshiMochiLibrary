@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 
-namespace n91 {
+namespace nimi {
 
 class checker {
 public:
@@ -90,9 +90,9 @@ void test() {
   return;
 }
 
-} // namespace n91
+} // namespace nimi
 
 int main() {
-  n91::test();
+  nimi::test();
   return 0;
 }

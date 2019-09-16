@@ -5,7 +5,7 @@
 #include <memory>
 #include <utility>
 
-namespace n91 {
+namespace nimi {
 
 template <class T, class Size = std::size_t> class persistent_skew_binary_list {
   class tree_type;
@@ -116,6 +116,6 @@ public:
   }
 };
 
-} // namespace n91
+} // namespace nimi
 
 #endif
